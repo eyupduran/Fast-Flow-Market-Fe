@@ -1,0 +1,26 @@
+<link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" />
+
+<div class="min-h-auto flex flex-row bg-white-100 mt-4">
+   <div class="flex flex-col w-56 overflow-y-auto rounded bg-gray-50 dark:bg-gray-800 overflow-hidden">
+      <div class="flex items-center justify-center h-6 ">
+         <h1 class="flex flex-row items-center h-12 transform
+       text-gray-500 hover:text-gray-800">Category of Product</h1>
+      </div>
+      <div class="flex items-center justify-center h-6 p-2 m-3 ">
+         <a routerLink="/products" class="flex flex-row items-center h-12 transform hover:translate-x-2
+          transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800"> <b>All Products</b> </a>
+      </div>
+      <ul class="flex flex-col">
+         <li *ngFor="let category of categories; let i = index">
+            <a [routerLinkActive]="['bg-fuchsia-200','text-gray-800']"
+             routerLink="/products/category/{{category.categoryId}}"
+               class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
+               <span class="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400">
+                  <img src='{{categoryIcon[i]}}' />
+               </span>
+               <span class="text-sm font-medium">{{category.categoryName}}</span>
+            </a>
+         </li>
+      </ul>
+   </div>
+</div>

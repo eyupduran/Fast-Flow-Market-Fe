@@ -1,0 +1,131 @@
+<!-- component -->
+
+    <div class="w-full bg-gray-50 border-t border-b border-gray-200 px-5 py-10 text-gray-800">
+        <div class="w-full">
+            <div class="-mx-3 md:flex items-start">
+                <div class="px-3 md:w-7/12 lg:pr-10">
+                    <div *ngFor="let product of shoppingCartProducts" class="w-full mx-auto text-gray-800 font-light mb-6 border-b border-gray-200 pb-6">
+                        <div class="w-full flex items-center">
+                            <div class="overflow-hidden rounded-lg w-16 h-16 bg-gray-50 border border-gray-200">
+                                <img [src]='"assets/images/"+product.imagePath' alt="">
+                            </div>
+                            <div class="flex-grow pl-3">
+                                <h6 class="font-semibold uppercase text-gray-600">{{product.productName}}</h6>
+                                <p class="text-gray-400">x {{product.quantity}}</p>
+                            </div>
+                            <div>
+                                <span class="font-semibold text-gray-600 text-xl">{{product.unitPrice * product.quantity}} ₺</span><span class="font-semibold text-gray-600 text-sm"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-6 pb-6 border-b border-gray-200 text-gray-800">
+                        <div class="mb-2 w-full flex mb-3 items-center">
+                            <div class="flex-grow">
+                                <span class="text-gray-600">Subtotal</span>
+                            </div>
+                            <div class="pl-3">
+                                <span class="font-semibold">{{allTotalQuantityOfCardItem}} ₺</span>
+                            </div>
+                        </div>
+                        <div class=" mb-3  w-full flex items-center">
+                            <div class="flex-grow">
+                                <span class="text-gray-600">Cargo</span>
+                            </div>
+                            <div class="pl-3">
+                                <select (change)="selectOption($any($event).target.value)" id="cargoes" class="bg-gray-50 border border-gray-300 
+                                text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 
+                                block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400
+                                 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                >
+                                <option> Select Shipping Company </option>
+                                <option [value]="cargo.cargoId" *ngFor="let cargo of cargoes">{{cargo.cargoName}}</option>
+                            </select>               
+                            </div>
+                        </div>
+
+                        <div class="w-full flex items-center">
+                            <div class="flex-grow">
+                                <span class="text-gray-600">Shiping</span>
+                            </div>
+                            <div class="pl-3">
+                                <span class="font-semibold">{{shiping}} ₺</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-6 pb-6 border-b border-gray-200 md:border-none text-gray-800 text-xl">
+                        <div class="w-full flex items-center">
+                            <div class="flex-grow">
+                                <span class="text-gray-600">Total</span>
+                            </div>
+                            <div class="pl-3">
+                                <span class="font-semibold text-gray-400 text-sm"></span> <span class="font-semibold">{{allTotalQuantityOfCardItem+shiping}} ₺</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="  px-3 md:w-5/12">
+                    <div class=" w-full mx-auto rounded-lg bg-gray-200 border border-gray-200 p-3 text-gray-800 font-light mb-6">
+                        <div class="w-full flex mb-3 items-center">
+                            <div class="w-32">
+                                <span class="text-gray-600 font-semibold">Country/City:</span>
+                            </div>
+                            <div class="flex-grow pl-3">
+                                <span>{{country + " " + city}}</span>
+                            </div>
+                        </div>
+                        <div class="w-full flex items-center">
+                            <div class="w-32">
+                                <span class="text-gray-600 font-semibold">Full Address:</span>
+                            </div>
+                            <div class="flex-grow pl-3">
+                                <span>{{address}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full mx-auto rounded-lg bg-white border border-gray-200 text-gray-800 font-light mb-6">
+                        <div class="w-full p-3 border-b border-gray-200">
+                            <div class="mb-3">
+                                <label for="type1" class="flex items-center cursor-pointer">
+                                    <img src="https://leadershipmemphis.org/wp-content/uploads/2020/08/780370.png" class="h-6 ml-3">
+                                </label>
+                            </div>
+                            <div>
+                                <div class="mb-2">
+                                    <label class="text-gray-600 font-semibold text-sm mb-2 ml-1">Name on card</label>
+                                    <div>
+                                        <input class="w-full px-3 py-2 mb-1 border border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors" placeholder="John Smith" type="text"/>
+                                    </div>
+                                </div>
+                                <div class="mb-2">
+                                    <label class="text-gray-600 font-semibold text-sm mb-2 ml-1">Card number</label>
+                                    <div>
+                                        <input class="w-full px-3 py-2 mb-1 border border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors" placeholder="0000 0000 0000 0000" type="text"/>
+                                    </div>
+                                </div>
+                                <div class="mb-2 -mx-2 flex items-end">
+                                    <div class="px-2 w-2/4">
+                                        <label class="text-gray-600 font-semibold text-sm mb-2 ml-1">Expiration date</label>
+                                        <div>
+                                            <select class="form-select w-full px-3 py-2 mb-1 border border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors cursor-pointer">
+                                                <option value="">01 - January</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="px-2 w-1/4">
+                                        <label class="text-gray-600 font-semibold text-sm mb-2 ml-1">Security code</label>
+                                        <div>
+                                            <input class="w-full px-3 py-2 mb-1 border border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors" placeholder="000" type="text"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div>
+                        <button (click)="addOrder()" class="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-2 font-semibold"><i class="mdi mdi-lock-outline mr-1"></i> PAY NOW</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

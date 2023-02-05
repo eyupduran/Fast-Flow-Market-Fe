@@ -1,0 +1,21 @@
+[
+  {
+    "_id": "64a916de-8413-460a-a0f9-b655f69b401c",
+    "colId": "history",
+    "containerId": "",
+    "name": "https://localhost:44316/api/auth/register",
+    "url": "https://localhost:44316/api/auth/register",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2022-10-20T13:55:43.360Z",
+    "modified": "2022-10-20T13:55:46.388Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{  \r\n    \"email\":\"eyup2@gmail.com\",\r\n    \"password\":\"123456\",\r\n    \"firstName\":\"eyup2\",\r\n    \"lastName\":\"duran\"\r\n}",
+      "form": []
+    },
+    "tests": []
+  }
+]

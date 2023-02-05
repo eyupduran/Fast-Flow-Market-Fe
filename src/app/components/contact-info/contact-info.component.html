@@ -1,0 +1,145 @@
+<link
+  rel="stylesheet"
+  href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+  integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+  crossorigin="anonymous"
+/>
+
+<body>
+  <div
+    class="h-auto flex flex-col items-center justify-center bg-gray-100 p-5"
+  >
+    <div
+      class="flex flex-col bg-white shadow-md px-4 sm:px-6 md:px-8 lg:px-10 py-8 rounded-3xl w-50 max-w-md"
+    >
+      <div class="mt-4 self-center text-xl sm:text-sm font-bold">
+        <h3> Enter your contact infoes to complete your shopping</h3>
+        <br>
+        Make sure your information is up to date!
+      </div>
+
+      <div class="mt-10">
+        <form action="#">
+          <div class="flex flex-col mb-2">
+            <label for="country" class="mb-1 text-xs tracking-wide text-gray-600"
+              >Country:</label
+            >
+            <div class="relative">
+              <div
+                class="inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-gray-400"
+              >
+                <i class="fas fa-globe text-blue-500"></i>
+              </div>
+
+              <input 
+                [(ngModel)]="country"
+                id="country"
+                type="country"
+                name="country"
+                class="text-sm placeholder-gray-500 pl-10 pr-4 rounded-2xl border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400"
+                placeholder="Enter your Country"
+              />
+            </div>
+          </div>
+          <div class="flex flex-col mb-2">
+            <label for="city" class="mb-1 text-xs tracking-wide text-gray-600"
+              >City:</label
+            >
+            <div class="relative">
+              <div
+                class="inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-gray-400"
+              >
+                <i class="fas fa-city text-blue-500"></i>
+              </div>
+
+              <input
+              [(ngModel)]="city"
+                id="city"
+                type="text"
+                name="city"
+                class="text-sm placeholder-gray-500 pl-10 pr-4 rounded-2xl border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400"
+                placeholder="Enter your City"
+              />
+            </div>
+          </div>
+          <div class="flex flex-col mb-2">
+            <label
+              for="address"
+              class="mb-1 text-xs sm:text-sm tracking-wide text-gray-600"
+              >Address:</label
+            >
+            <div class="relative">
+              <div
+                class="inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-gray-400"
+              >
+                <span>
+                  <i class="fas fa-address-card  text-blue-500"></i>
+                </span>
+              </div>
+
+              <input
+              [(ngModel)]="address"
+                id="address"
+                type="text"
+                name="address"
+                class="text-sm placeholder-gray-500 pl-10 pr-4 rounded-2xl border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400"
+                placeholder="Enter your Address"
+              />
+            </div>
+          </div>
+
+          <div class="flex flex-col mb-2">
+            <label
+              for="phoneNumber"
+              class="mb-1 text-xs sm:text-sm tracking-wide text-gray-600"
+              >Phone Number:</label
+            >
+            <div class="relative">
+              <div
+                class="inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-gray-400"
+              >
+                <span>
+                  <i class="fas fa-phone text-blue-500"></i>
+                </span>
+              </div>
+
+              <input
+              [(ngModel)]="phoneNumber"
+                id="phoneNumber"
+                type="text"
+                name="phoneNumber"
+                class="text-sm placeholder-gray-500 pl-10 pr-4 rounded-2xl border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400"
+                placeholder="Enter your Phone Number"
+              />
+            </div>
+          </div>
+
+          <div class="flex w-full">
+            <button 
+            (click)="addContactInfo()"
+              type="submit"
+              class="flex mt-2 items-center justify-center focus:outline-none text-white text-sm sm:text-base bg-blue-500 hover:bg-blue-600 rounded-2xl py-2 w-full transition duration-150 ease-in"
+            >
+              <span class="mr-2 uppercase">Submit</span>
+              <span>
+                <svg
+                  class="h-6 w-6"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>

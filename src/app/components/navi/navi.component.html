@@ -1,0 +1,77 @@
+<div class="header">
+
+  <nav class="bg-gradient py-2 md:py-4">
+    <div class="container px-4 mx-auto md:flex md:items-center">
+
+      <div class="flex justify-between items-center">
+        <h1 routerLink="/products" class="cursor-pointer font-bold text-xl text-indigo-600">FAST FLOW MARKET</h1>
+        <button
+          class="border border-solid border-gray-600 px-3 py-1 rounded text-gray-600 opacity-50 hover:opacity-75 md:hidden"
+          id="navbar-toggle">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+
+      <div class="hidden md:flex flex-col md:flex-row md:ml-auto mt-3 md:mt-0" id="navbar-collapse">
+        <a routerLink="/products"
+          class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300"><img src="https://img.icons8.com/ios-glyphs/30/null/home-page--v1.png"/></a>
+        <a routerLink="/shoppingCart"
+          class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300">
+          <img src="https://img.icons8.com/external-tanah-basah-glyph-tanah-basah/30/null/external-glyph-travel-tanah-basah-glyph-tanah-basah-88.png"/>
+        </a>
+        <div *ngIf="!authService.isAuthenticated()" class="p-2 lg:px-4 md:mx-2">
+          <a routerLink="/login"
+
+            class="p-2 lg:px-4 md:mx-2 bg-indigo-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-indigo-600 text-center border border-transparent rounded hover:text-white focus:outline-none focus:shadow-outline transition-colors duration-300">Login </a>
+        </div>
+        <button *ngIf="authService.isAuthenticated()" id="dropdownInformationButton" data-dropdown-toggle="dropdownInformation"
+          class="text-white bg-white-700 hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-2 py-1.5 text-center inline-flex items-center  "
+          type="button">
+          <img src="https://img.icons8.com/external-kiranshastry-lineal-color-kiranshastry/35/null/external-user-interface-kiranshastry-lineal-color-kiranshastry.png"/> <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="blue"
+            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg></button>
+
+        <div *ngIf="authService.isAuthenticated()" id="dropdownInformation"
+          class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
+          <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">
+            <div>{{authService.userData.firstName}}</div>
+            <div class="font-medium truncate">{{authService.userData.email}}</div>
+          </div>
+          <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownInformationButton">
+            <li>
+              <a routerLink="/orders"
+                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">My Orders</a>
+            </li>
+            <li>
+              <a *ngIf="authService.userData.userType=='Seller'" routerLink="/product/add"
+                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Make Sale</a>
+            </li>
+            <li>
+              <a *ngIf="authService.userData.userType=='Seller'" routerLink="/sale-dashboard"
+                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sale Dashboard</a>
+            </li>
+            <li>
+              <a routerLink="/contact-info"
+                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Contact İnfo</a>
+            </li>
+            <!-- <li>
+              <a routerLink="/bank-account"
+                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Bank Account</a>
+            </li> -->
+          </ul>
+          <div class="py-2">
+            <a *ngIf="authService.isAuthenticated()" (click)="authService.logout()"
+              class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+
+
+
+
+
+
