@@ -1,0 +1,7 @@
+.photos img{
+    width: 135px;;
+    height:135px;
+    aspect-ratio: 3/2; 
+    object-fit: contain;
+    mix-blend-mode:normal ;
+}

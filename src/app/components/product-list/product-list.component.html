@@ -26,8 +26,8 @@
             <div >
               <div >
                 <div style="cursor:pointer ;" (click)="goProductDetail(product)">
-                  <div class="relative flex items-end overflow-hidden rounded-xl" style="width:135px;height:135px;">
-                    <img [src]='"assets/images/"+product.imagePath' />
+                  <div class="photos relative flex items-end overflow-hidden rounded-xl" >
+                    <img [src]='"assets/images/"+product.imagePath'/>
                   </div>
                   <div class="mt-1 p-2">
                     <h2 class="text-slate-700 text-uppercase font-bold">{{product.productName}}</h2>

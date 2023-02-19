@@ -1,0 +1,6 @@
+.photos img{
+    width: 320px;
+    aspect-ratio: 3/2; 
+    height: 320px;
+    object-fit: contain;
+}
