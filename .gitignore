@@ -45,4 +45,4 @@ Thumbs.db
 /src/assets
 
 #big css file
-/src/app/components/sale-dashboard/sale-dashboard.component.css
+# /src/app/components/sale-dashboard/sale-dashboard.component.css
