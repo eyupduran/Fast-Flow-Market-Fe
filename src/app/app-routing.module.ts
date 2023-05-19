@@ -28,7 +28,6 @@ const routes: Routes = [
   {path:"bank-account", component:BankAccountComponent,canActivate:[LoginGuard]},
   {path:"checkout", component:CheckoutComponent,canActivate:[LoginGuard]},
   {path:"orders", component:OrderComponent,canActivate:[LoginGuard]},
-  {path:"orders", component:OrderComponent,canActivate:[LoginGuard]},
   {path:"sale-dashboard", component:SaleDashboardComponent,canActivate:[LoginGuard]},
   { path: 'not-found', component: NotFoundComponent },
   { path: '**', redirectTo: '/not-found' }
