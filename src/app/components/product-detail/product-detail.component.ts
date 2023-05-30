@@ -32,10 +32,10 @@ export class ProductDetailComponent implements OnInit {
     this.activatedRoute.params.subscribe(params=>{
       this.getProductDetail(params["productId"])
     })
+    this.authService.getUserData();
     setTimeout(() => {
       this.getProductsByUserId()
     }, 100)
-    this.authService.getUserData();
      
   }
 

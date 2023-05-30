@@ -22,7 +22,7 @@ export class CategoryComponent implements OnInit {
   "https://img.icons8.com/color/30/null/pets--v2.png",
 ];
 
-    categories:CategoryModel[];
+  categories:CategoryModel[];
   constructor(private categoryService:CategoryService) { }
   
   ngOnInit(): void {

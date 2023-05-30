@@ -9,6 +9,7 @@ import { LoginModel } from './../models/loginModel';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,8 @@ export class AuthService {
 
   jwtHelperService: JwtHelperService = new JwtHelperService();
 
-  apiUrl = 'https://localhost:44316/api/Auth/';
+  apiUrl = `${environment.apiUrl}Auth/`
+  //apiUrl = 'https://localhost:44316/api/Auth/';
   
   userData:UserDataModel
 
@@ -54,15 +56,23 @@ export class AuthService {
       return false;
     }
   }
-
-  // getToken() {
-  //   return localStorage.getItem('token');
-  // }
-
-  //  getDecodedToken() {
-  //   let token = this.getToken();
-  //   return this.jwtHelperService.decodeToken(token);
-  // }
+  loggedIn() {
+    let token = localStorage.getItem("token");
+    if (this.jwtHelperService.isTokenExpired(token)) {
+      localStorage.removeItem('token');
+    }
+    return !this.jwtHelperService.isTokenExpired(token);
+  }
+  
+  isTokenExpired(){
+    if (localStorage.getItem("token")) {
+      let token = localStorage.getItem("token");
+      return this.jwtHelperService.isTokenExpired(token)
+    }
+    else{
+      return false
+    }
+  }
 
    getCurrentUserId() {
     let token = localStorage.getItem('token');

@@ -9,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CategoryModel } from 'src/app/models/categoryModel';
 import { AuthService } from 'src/app/services/auth.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-product-add',
@@ -36,7 +37,6 @@ export class ProductAddComponent implements OnInit {
   productImageId: number;
   productImageId2: number;
   categories: CategoryModel[];
-
   isSelect : boolean = false
 
   isUpload : boolean = false
@@ -97,9 +97,9 @@ export class ProductAddComponent implements OnInit {
     const formData: FormData = new FormData();
     formData.append('Image', this.fileToUpload, this.fileToUpload.name);
     productImageModel = formData;
-    return this.httpClient.post<SingleResponseModel<ProductImageModel>>('https://localhost:44316/api/ImageUpload/add', productImageModel)
+    let newPath= `${environment.apiUrl}ImageUpload/add`
+    return this.httpClient.post<SingleResponseModel<ProductImageModel>>(newPath, productImageModel)
   }
-
   getCategories() {
     this.categoryService.getAllCategories().subscribe((response => {
       this.categories = response.data;

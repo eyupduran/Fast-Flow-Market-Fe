@@ -13,13 +13,14 @@ import { LoginComponent } from './components/login/login.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginGuard } from './guards/login.guard';
+import { RefreshGuard } from './guards/refresh.guard';
 
 const routes: Routes = [
   {path:"", component:ProductListComponent},
-  {path:"login", component:LoginComponent},
+  {path:"login", component:LoginComponent, canActivate:[RefreshGuard]},
   {path:"register", component:RegisterComponent},
   {path:"products", component:ProductListComponent},
-  {path:"product/detail/:productId", component:ProductDetailComponent},
+  {path:"product/detail/:productId", component:ProductDetailComponent,canActivate:[LoginGuard]},
 
   {path:"products/category/:categoryId", component:ProductListComponent},
   {path:"product/add", component:ProductAddComponent,canActivate:[LoginGuard]},

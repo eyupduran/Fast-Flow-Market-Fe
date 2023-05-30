@@ -32,7 +32,9 @@ export class ContactInfoComponent implements OnInit {
   
   ngOnInit(): void {
     this.authService.getUserData();
-    this.getContactInfoByUserId();
+    setTimeout(() => {
+      this.getContactInfoByUserId();
+    }, 100)
   }
 
   addContactInfo(){

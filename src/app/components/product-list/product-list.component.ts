@@ -31,6 +31,9 @@ export class ProductListComponent implements OnInit {
 
   
   ngOnInit(): void {
+    if (this.authService.isTokenExpired()) {
+      this.refreshLocalStorage()
+     }
     this.activatedRoute.params.subscribe(params=>{
       if(params["categoryId"]){
         this.getProductsByCategory(params["categoryId"])
@@ -75,7 +78,12 @@ export class ProductListComponent implements OnInit {
  }
 
  goProductDetail(product:ProductModel){
-  this.route.navigate(['/product/detail', product.productId]);
+  if ( this.authService.isAuthenticated()) {
+    this.route.navigate(['/product/detail', product.productId]);
+  }
  }
-
+ refreshLocalStorage() {
+    window.localStorage.clear();
+    window.location.reload()
+}
 }

@@ -6,13 +6,15 @@ import { Injectable } from '@angular/core';
 import { SingleResponseModel } from '../models/singleResponseModel';
 import { ListResponseModel } from '../models/listResponseModel';
 import { ResponseModel } from '../models/responseModel';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ShoppingCartService {
 
-  apiUrl = 'https://localhost:44316/api/ShoppingCarts/';
+ // apiUrl = 'https://localhost:44316/api/ShoppingCarts/';
+  apiUrl = `${environment.apiUrl}ShoppingCarts/`
   
 
   constructor(private httpClient: HttpClient) { }

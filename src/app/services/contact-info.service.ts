@@ -4,13 +4,16 @@ import { ContactInfoModel } from './../models/contactInfoModel';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { SingleResponseModel } from '../models/singleResponseModel';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ContactInfoService {
 
-  apiUrl = 'https://localhost:44316/api/ContactInfoes/';
+  //apiUrl = 'https://localhost:44316/api/ContactInfoes/';
+   apiUrl = `${environment.apiUrl}ContactInfoes/`
+  
   constructor(private httpClient: HttpClient) { }
   addContactInfo(contactInfoModel:ContactInfoModel){
     return this.httpClient.
@@ -28,6 +31,7 @@ export class ContactInfoService {
   }
 
   getAllCargo(){
-    return this.httpClient.get<ListResponseModel<CargoModel>>("https://localhost:44316/api/Cargoes/getallcargoes")
+    let newPath= `${environment.apiUrl}Cargoes/getallcargoes`
+    return this.httpClient.get<ListResponseModel<CargoModel>>(newPath)
   }
 }

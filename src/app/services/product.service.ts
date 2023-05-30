@@ -6,6 +6,7 @@ import { ProductModel } from './../models/productModel';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { SingleResponseModel } from '../models/singleResponseModel';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,8 @@ import { SingleResponseModel } from '../models/singleResponseModel';
 export class ProductService {
 
 
-  apiUrl = 'https://localhost:44316/api/Products/';
+  // apiUrl = 'https://localhost:44316/api/Products/';
+  apiUrl = `${environment.apiUrl}Products/`
   
 
   constructor(private httpClient: HttpClient) { }

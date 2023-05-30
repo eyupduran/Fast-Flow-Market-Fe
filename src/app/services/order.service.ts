@@ -5,6 +5,7 @@ import { OrderModel } from './../models/orderModel';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,9 @@ import { Router } from '@angular/router';
 export class OrderService {
 
 
-  apiUrl = 'https://localhost:44316/api/Orders/';
+  //apiUrl = 'https://localhost:44316/api/Orders/';
+  apiUrl = `${environment.apiUrl}Orders/`
+
   constructor(private httpClient:HttpClient,
     private route:Router) { }
 
