@@ -40,7 +40,7 @@
           </div>
           <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownInformationButton">
             <li>
-              <a routerLink="/orders"
+              <a *ngIf="authService.userData.userType=='Buyer'" routerLink="/orders"
                 class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">My Orders</a>
             </li>
             <li>
@@ -52,7 +52,7 @@
                 class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sale Dashboard</a>
             </li>
             <li>
-              <a routerLink="/contact-info"
+              <a *ngIf="authService.userData.userType=='Buyer'" routerLink="/contact-info"
                 class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Contact İnfo</a>
             </li>
             <!-- <li>

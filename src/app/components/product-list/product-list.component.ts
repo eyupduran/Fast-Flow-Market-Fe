@@ -61,16 +61,12 @@ export class ProductListComponent implements OnInit {
       this.route.navigate(["/login"])
     }
     this.shoppingCart={productId:this.selectedProduct.productId,userId:this.authService.userData.userId}
-    if (this.authService.userData.userId === this.selectedProduct.userId) {
-      this.toastrService.error("Kendi ürününüzü satın alamazsınız")     
-    }
-    else{
       this.shoppingCartService.addToShoppingCart(this.shoppingCart).subscribe((response)=>{
         this.toastrService.success("Ürün başarıyla sepete eklendi")
       },responseError=>{
             this.toastrService.error(responseError.error.message,"Sepete eklenemedi")     
       })
-    }
+    
  }
 
  selectProduct(product:ProductModel){
