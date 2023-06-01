@@ -10,6 +10,7 @@ import { HttpClient } from '@angular/common/http';
 import { CategoryModel } from 'src/app/models/categoryModel';
 import { AuthService } from 'src/app/services/auth.service';
 import { environment } from 'src/environments/environment';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-add',
@@ -22,7 +23,8 @@ export class ProductAddComponent implements OnInit {
     private toastrService: ToastrService,
     private httpClient: HttpClient,
     private categoryService: CategoryService,
-    public authService:AuthService) { }
+    public authService:AuthService,
+    private router:Router) { }
 
   fileToUpload: File | null = null;
   product: ProductModel;
@@ -59,6 +61,7 @@ export class ProductAddComponent implements OnInit {
     if (this.isUpload) {
       this.productService.addProduct(this.product).subscribe((response) => {
         this.toastrService.success("Ürün başarıyla eklendi")
+        this.router.navigateByUrl("/products")
       }, responseError => {
         this.toastrService.error(responseError.error, "Ürün eklenemedi.")
       })
