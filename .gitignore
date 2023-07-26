@@ -42,7 +42,7 @@ testem.log
 Thumbs.db
 
 #public file
-/src/assets
+# /src/assets  //Daha sonra geri alınacak
 
 #big css file
 # /src/app/components/sale-dashboard/sale-dashboard.component.css
