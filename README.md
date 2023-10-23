@@ -1,3 +1,11 @@
+### Production:
+https://fastflowmarket.orgsocial.com.tr
+
+### Docker setup:
+Frontend : docker run -d -it -p 4200:80/tcp --name fast-flow-fe krambaqtus/fast-flow-fe:latest
+
+Backend : docker run -it --rm -p 3001:80 krambaqtus/webapi:latest
+
 ### PROJECT AND USED TECHNOLOGIES
 Fast Flow Market is a comprehensive e-commerce project. In this project, a platform was created where customers can easily find and purchase products. The project has been developed as a full stack solution, that is, it includes database, backend and frontend components.
 
