@@ -1,0 +1,15 @@
+
+@media (max-width:500px){
+    .name{
+        font-size: small;
+    }
+    .mobile-nav{
+        margin-left: 20px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .mobile-img{
+        width: 25px !important;
+        height: 25px !important;
+    }
+}

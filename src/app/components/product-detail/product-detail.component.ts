@@ -35,7 +35,7 @@ export class ProductDetailComponent implements OnInit {
     this.authService.getUserData();
     setTimeout(() => {
       this.getProductsByUserId()
-    }, 100)
+    }, 500)
      
   }
 

@@ -1,7 +1,6 @@
-import { AuthService } from 'src/app/services/auth.service';
 import { Component, OnInit } from '@angular/core';
-import { UserDataModel } from 'src/app/models/userDataModel';
-
+import { AuthService } from 'src/app/services/auth.service';
+import { DeviceService } from 'src/app/services/device.service';
 @Component({
   selector: 'app-navi',
   templateUrl: './navi.component.html',
@@ -12,7 +11,8 @@ export class NaviComponent implements OnInit {
 
   canAddProduct: boolean=false;
   productAdd:string="productAdd"
-  constructor(public authService: AuthService) { }
+  constructor(public authService: AuthService,
+    public deviceService:DeviceService) { }
 
   ngOnInit(): void {
     this.authService.getUserData();
