@@ -5,6 +5,8 @@
     object-fit: contain;
     mix-blend-mode:normal ;
 }
-.discover{
-    font-size: medium
-}
+@media (max-width:500px) {
+    .discover{
+        font-size: medium
+    }
+  }
