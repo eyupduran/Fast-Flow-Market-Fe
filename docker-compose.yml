@@ -1,6 +1,6 @@
 services:
   frontend:
     build: .
-    name: fastflowmarketfe
+    name: fast-flow-fe
     ports:
       - "4200:80"
